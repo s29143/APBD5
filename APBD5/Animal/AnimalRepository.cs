@@ -24,7 +24,7 @@ public class AnimalRepository : IAnimalRepository
         string[] allowedColumns = ["idanimal", "name", "description", "category", "area"];
         int orderColumn = Array.IndexOf(allowedColumns, orderBy.ToLower());
         if (orderColumn < 0)
-            orderColumn = 0;
+            orderColumn = 1;
         using var command = new SqlCommand($"SELECT IdAnimal, Name, Description, Category, Area FROM s29143.Animal ORDER BY {allowedColumns[orderColumn]}", connection);
 
         var animals = new List<Animal>();
